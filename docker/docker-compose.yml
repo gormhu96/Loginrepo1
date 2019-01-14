@@ -2,24 +2,25 @@ version: '3'
 services:
   db:
     container_name: mysql-login
+    build:
+      context: ./db
+    image: mysql-login
     volumes:
-      - /home/guillermo/proyecto1/mysql-login/conf/my.cnf:/etc/mysql/my.cnf
-      - /home/guillermo/proyecto1/mysql-login/mysql:/var/lib/mysql
+      - /login-data/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=123456
-    image: mysql
   api:
     container_name: login-service
     build: .
     image: api-login
     depends_on:
       - db    
-  web:
+  proxy:
     container_name: nginx-proxy
+    build:
+      context: ./proxy
+    image: proxy-login
     ports:
       - "80:80"
-    volumes:
-      - /home/guillermo/proyecto1/nginx-proxy/conf.d:/etc/nginx/conf.d
     depends_on:
       - api
-    image: nginx
