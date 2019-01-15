@@ -5,13 +5,13 @@ services:
     build:
       context: ./db
     image: mysql-login
-    volumes:
-      - /login-data/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=123456
   api:
     container_name: login-service
-    build: .
+    build:
+      context: ../
+      dockerfile: ./docker/api/Dockerfile
     image: api-login
     depends_on:
       - db    
