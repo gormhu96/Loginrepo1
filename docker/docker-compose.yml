@@ -21,6 +21,6 @@ services:
       context: ./proxy
     image: proxy-login
     ports:
-      - "80:80"
+      - "8000:80"
     depends_on:
       - api
