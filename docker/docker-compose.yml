@@ -9,10 +9,7 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
   api:
     container_name: login-service
-    build:
-      context: ../
-      dockerfile: ./docker/api/Dockerfile
-    image: api-login
+    image: localhost:5000/api-login
     depends_on:
       - db    
   proxy:
