@@ -17,12 +17,23 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		
+<jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
+<sonar.jacoco.itReportPath>${project.testresult.directory}/coverage/jacoco/jacoco-it.exec</sonar.jacoco.itReportPath>
+<sonar.jacoco.reportPath>${project.testresult.directory}/coverage/jacoco/jacoco.exec</sonar.jacoco.reportPath>
+<sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.takari.junit</groupId>
+			<artifactId>takari-cpsuite</artifactId>
+			<version>1.2.7</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +60,14 @@
     <version>5.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+<dependency>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.7.9</version>
+</dependency>
+
+
 <!-- https://mvnrepository.com/artifact/org.codehaus.sonar/sonar-plugin-api -->
 <dependency>
     <groupId>org.codehaus.sonar</groupId>
@@ -71,6 +90,41 @@
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.5.0.1254</version>
       </plugin>
+      <plugin>
+		<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+				<version> ${jacoco-maven-plugin.version}</version>
+			<executions>
+			<execution>
+				<id>pre-unit-tests</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+		<configuration>
+
+			<destFile>${project.testresult.directory}/coverage/jacoco/jacoco.exec</destFile>
+		</configuration>
+		</execution>
+		<execution>
+			<id>post-unit-test</id>
+			<phase>test</phase>
+		<goals>
+			<goal>report</goal>
+		</goals>
+<configuration>
+<dataFile>${project.testresult.directory}/coverage/jacoco/jacoco.exec</dataFile>
+<outputDirectory>${project.testresult.directory}/coverage/jacoco</outputDirectory>
+</configuration>
+</execution>
+</executions>
+</plugin>
+  
+      <plugin>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.2</version>
+		</plugin>
+
 		</plugins>
 	</build>
 

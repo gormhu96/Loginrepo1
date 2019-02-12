@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ApiLogin,com.login.ws.rest,ApiLoginApplication,5,3,0,0,2,1,1,1,1,1
+ApiLogin,com.login.ws.rest.controller,UserController,6,13,1,1,2,4,2,2,1,2
+ApiLogin,com.login.ws.rest.config,Conexion,0,79,0,0,0,18,0,3,0,3
+ApiLogin,com.login.ws.rest.service,UserServiceImpl,22,3,4,0,6,1,4,1,2,1
+ApiLogin,com.login.ws.rest.model,User,15,11,0,0,5,5,4,3,4,3
