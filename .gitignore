@@ -1,2 +1,6 @@
 mysql-login/mysql/
 target/
+docker/certs/localhost.crt
+docker/certs/localhost.crs
+docker/certs/localhost.key
+
