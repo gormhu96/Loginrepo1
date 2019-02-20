@@ -104,3 +104,4 @@ $ git push origin master
 ### Anotaciones
 * Los datos usados para este proyecto son solo de prueba.
 * Se debe tener en cuenta las versiones usadas en los programas, algunas variaciones pueden generar posibles incompatibilidades.
+* Se integra con el jenkins para su compilación automática.
