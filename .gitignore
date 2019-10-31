@@ -3,4 +3,5 @@ target/
 docker/certs/localhost.crt
 docker/certs/localhost.crs
 docker/certs/localhost.key
-
+docker/api/user-data/
+${project.testresult.directory}/

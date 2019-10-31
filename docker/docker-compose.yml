@@ -9,7 +9,8 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
   api:
     container_name: login-service
-    image: localhost:5000/api-login
+    build:
+      context: ./api
     depends_on:
       - db    
   proxy:
@@ -18,8 +19,8 @@ services:
       context: ./proxy
     image: proxy-login
     volumes:
-      - /etc/ssl/localhost/localhost.crt:/etc/ssl/certs/localhost.crt
-      - /etc/ssl/localhost/localhost.key:/etc/ssl/certs/localhost.key
+      - /etc/ssl/localhost/localhost.crt/localhost.crt:/etc/ssl/certs/localhost.crt
+      - /etc/ssl/localhost/localhost.key/localhost.key:/etc/ssl/certs/localhost.key
     ports:
       - "10443:443"
     depends_on:
