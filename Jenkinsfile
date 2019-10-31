@@ -12,7 +12,7 @@ node
     def nexus_url = 'http://localhost:8081/repository/Loginrepo1/'
 //    def command_build_image = 'docker build -t 134219192027.dkr.ecr.us-east-1.amazonaws.com/reto-tpo/service-clientes \
 //                                                -f docker/Dockerfile \
-                                                . '
+//                                                . '
     
 //     def command_deploy = 'ssh ec2-user@ec2-13-58-105-46.us-east-2.compute.amazonaws.com:deploy_service.sh'
 
