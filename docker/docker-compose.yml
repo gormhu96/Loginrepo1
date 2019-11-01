@@ -10,7 +10,7 @@ services:
   api:
     container_name: login-service
     build:
-      dockerfile: api/Dockerfile
+      dockerfile: docker/api/Dockerfile
       context: ../
     depends_on:
       - db    
