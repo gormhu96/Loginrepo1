@@ -7,6 +7,7 @@ node
     def command_sonar = "mvn sonar:sonar -Dsonar.host.url=$sonar_url -Dsonar.login=$sonar_token";
     def command_compile = 'mvn clean install';
     def nexus_url = 'http://localhost:8081/repository/Loginrepo1/';
+    def command_compose = "docker-compose -f docker/docker-compose.yml up --build";
     
 	stage("Download files"){
 	checkout scm
@@ -19,6 +20,6 @@ node
         sh command_sonar
         }
         stage("Deploy Service"){
-	sh docker-compose up
+	sh command_compose
 	}
 }
